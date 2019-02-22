@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+div {
+  white-space:normal; word-break:break-all;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  color:#606266;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+a {
+  font-family: Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  text-decoration: none;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+a:hover {
+  color:#20b0e3;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix:after{
+  content: "020"; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;  
+  }
+
+.clearfix {
+  /* 触发 hasLayout */ 
+  zoom: 1; 
+}
+
+.min-width-200 {
+  min-width: 200px;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ellipsis-3 {
+  display: -webkit-box;    
+  -webkit-box-orient: vertical;    
+  -webkit-line-clamp: 3;    
+  overflow: hidden;
+}
+
+.poa-center {
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.mr-17 {
+  margin-right: 25px;   
+}
+.mr-50 {
+  margin-right: 65px;
+}
+.ml-15 {
+  margin-left: 24px
+}
+.ml-2 {
+  margin-left: 2px;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.ml-65 {
+  margin-left: 65px;
+}
