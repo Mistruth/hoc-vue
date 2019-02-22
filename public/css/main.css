@@ -8,7 +8,9 @@ ul {
 }
 
 div {
-  white-space:normal; word-break:break-all;
+  white-space:normal; 
+  word-break:break-all;
+  box-sizing: border-box;
 }
 
 html,
