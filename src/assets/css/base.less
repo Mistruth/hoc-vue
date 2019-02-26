@@ -1,3 +1,5 @@
+@import '~@/assets/css/var.less';
+
 .omega-container {
   // 头部
   .el-header {
@@ -8,5 +10,114 @@
     padding: 0px;
     height: 100%;
   }
+  .base-container {
+    height: 100%;
+    padding: 0px 40px 20px;
+    .scroll-bar-style
+  }
+  .base-inner-container {
+    height: 100%;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px rgba(0, 21, 41, 0.08);
+    padding: 20px;
+    .scroll-bar-style
+  }
+    // 滚动条
+  .scroll-bar-style {
+    &::-webkit-scrollbar {
+      /*滚动条整体样式*/
+      width: 6px;
+      /*高宽分别对应横竖滚动条的尺寸*/
+      height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      /*滚动条里面小方块*/
+      /* border-radius: 5px; */
+      // -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      background: #eee;
+    }
+    &::-webkit-scrollbar-track {
+      /*滚动条里面轨道*/
+      // -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      border-radius: 0;
+      background: #fff;
+    }
+    &::-webkit-scrollbar-thumb:active {
+      background: #e6f7ff;
+    }
+  }
+  .el-table th>.cell {
+    color:#606266;
+  }
+  .el-table--mini, .el-table--small, .el-table__expand-icon {
+    font-size: 14px;
+    a {
+      color: @themeColor;
+      font-weight: 500;
+      &:hover {
+        color: @themeHoverColor;
+      }
+    }
+    .el-button--mini, .el-button--small {
+      font-size: 14px;
+    }
+  }
+  .el-table--small td, .el-table--small th {
+    padding: 6px 0px;
+  }
+  .el-button--mini, .el-button--small {
+    font-size: 12px;
+  }
+  .el-table td .cell{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+  .el-table th .cell {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+  
 
+  // 按钮
+  .danger-type {
+    &.el-button {
+      color: @dangerColor;
+    }
+  }
+
+  .el-form-item__label {
+    color: #999;
+  }
+
+  // select 
+  .el-select {
+    width: 100%;
+    .el-tag {
+      display: block;
+    }
+  }
+}
+
+.el-dialog {
+  border-radius: 5px;
+  .el-dialog__body {
+    padding:30px 60px;
+  }
+  .el-dialog__header {
+    border-radius: 2px 2px 0px 0px;
+    padding:16px 24px;
+    border-bottom:1px solid #e8e8e8;
+    .el-dialog__title {
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+  .el-dialog__footer {
+    border-top:1px solid #e8e8e8;
+    padding:10px 16px;
+  }
 }

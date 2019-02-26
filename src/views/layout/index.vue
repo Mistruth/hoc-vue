@@ -35,5 +35,8 @@ export default {
 <style lang="less">
 .omega-container {
   height: 100%;
+  .el-aside {
+    transition: all 0.35s;
+  }
 }
 </style>

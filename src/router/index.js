@@ -26,7 +26,7 @@ export const constantRouterMap = [
         component: () => import(/* webpackChunkName: 'Application' */ '../views/Application/Application.vue'),
         name: 'application',
         meta: {
-          title: '应用管理', group: 'app'
+          title: '应用管理'
         }
       },
       {
@@ -34,7 +34,7 @@ export const constantRouterMap = [
         component: () => import(/* webpackChunkName: 'Module' */ '../views/Application/Module.vue'),
         name: 'module',
         meta: {
-          title: '模块管理', group: 'app'
+          title: '模块管理'
         }
       },
       {
@@ -42,7 +42,7 @@ export const constantRouterMap = [
         component: () => import(/* webpackChunkName: 'Operate' */ '../views/Application/Operate.vue'),
         name: 'operate',
         meta: {
-          title: '操作管理', group: 'app'
+          title: '操作管理'
         }
       }
     ]
