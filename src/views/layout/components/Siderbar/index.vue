@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { constantRouterMap } from '@/router/index.js'
 import SidebarItem from './components/SiderbarItem'
 export default {
   components: { SidebarItem },
@@ -32,7 +31,7 @@ export default {
     }
   },
   created() {
-    this.permission_routers = constantRouterMap
+    this.permission_routers = this.$bus.renderRouters
     this.$bus.$on('switchCollapse', () => {
       this.collapse = !this.collapse
     })

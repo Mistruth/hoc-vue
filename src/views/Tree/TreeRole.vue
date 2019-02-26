@@ -1,6 +1,6 @@
 <template>
   <Service
-    type="app"
+    type="treerole"
   >
     <template v-slot:btn>
       <el-button type="primary" @click="handleAddClick">
@@ -20,45 +20,49 @@
         />
         <el-table-column
           prop="name"
-          label="应用名称"
-          width="150"
+          label="角色名称"
+          width="220"
         >
           <template slot-scope="scope">
-            <a @click="handleDetailClick(scope.row)">
+            <a @click="handleDetailClick">
               {{ scope.row.name }}
             </a>
           </template>
         </el-table-column>
         <el-table-column
-          prop="display_name"
-          label="显示名称"
-          width="200"
-        >
-          <template slot-scope="scope">
-            <a v-if="scope.row.url" :href="scope.row.url">
-              {{ scope.row.display_name }}
-            </a>
-            <span v-else>
-              {{ scope.row.display_name }}
-            </span>
-          </template>
-        </el-table-column>
-        <el-table-column
-          prop="manager"
-          label="负责人"
+          prop="parent_role"
+          label="父角色"
           min-width="300"
         >
           <template slot-scope="scope">
-            <el-tag v-for="(item, index) in scope.row.manager" :key="index" :disable-transitions="true" type="info">
-              {{ item || '-' }}
-            </el-tag>
+            <template v-if="scope.row.parent_role.length !== 0">
+              <el-tag v-for="(item, index) in scope.row.parent_role" :key="index" :disable-transitions="true" type="info">
+                {{ item || '-' }}
+              </el-tag>
+            </template>
+            <template v-else>
+              <span>{{ '-' }}</span>
+            </template>
           </template>
         </el-table-column>
         <el-table-column
-          prop="secret"
-          label="秘钥"
-          width="200"
-        />
+          prop="creator"
+          label="创建人"
+          width="250"
+        >
+          <template slot-scope="scope">
+            {{ scope.row.creator || '-' }}
+          </template>
+        </el-table-column>
+
+        <el-table-column
+          prop="module"
+          label="权限管理"
+          width="80"
+          align="center"
+        >
+          <i class="iconfont icon-quanxian" />
+        </el-table-column>
         <el-table-column
           prop="status"
           label="状态"
@@ -70,15 +74,6 @@
               {{ scope.row.status === 'normal'? '正常': '锁定' }}
             </Badge>
           </template>
-        </el-table-column>
-
-        <el-table-column
-          prop="module"
-          label="模块"
-          width="80"
-          align="center"
-        >
-          <i class="iconfont icon-mokuai" />
         </el-table-column>
         <el-table-column
           prop="opreate"
@@ -113,24 +108,20 @@ export default {
     Service,
     Badge
   },
-  data() {
-    return {
-    }
-  },
   methods: {
     handleAddClick() {
-
-    },
-    handleDetailClick() {
-
-    },
-    handleDelClick() {
 
     },
     handleEditClick() {
 
     },
     handleStatusClick() {
+
+    },
+    handleDelClick() {
+
+    },
+    handleDetailClick() {
 
     }
   }

@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '../views/layout/index.vue'
-
+import tree from './async/tree.js'
+import center from './async/center.js'
 Vue.use(Router)
 
 export const constantRouterMap = [
@@ -107,5 +108,7 @@ export default new Router({
 })
 
 export const asyncRouterMap = [
+  tree,
+  center,
   { path: '*', redirect: '/404', hidden: true }
 ]

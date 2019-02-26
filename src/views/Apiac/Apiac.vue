@@ -63,8 +63,8 @@
           align="center"
         >
           <template slot-scope="scope">
-            <Badge :type="scope.row.status === 'normal'? 'success': 'danger'">
-              {{ scope.row.status === 'normal'? '正常': '异常' }}
+            <Badge :type="scope.row.status === 'normal'? 'success': 'warning'">
+              {{ scope.row.status === 'normal'? '正常': '锁定' }}
             </Badge>
           </template>
         </el-table-column>
