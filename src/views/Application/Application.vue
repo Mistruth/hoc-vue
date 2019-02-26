@@ -1,8 +1,12 @@
 <template>
   <Service
     type="app"
-    @add="handleAddClick"
   >
+    <template v-slot:btn>
+      <el-button type="primary" @click="handleAddClick">
+        新 增
+      </el-button>
+    </template>
     <template v-slot:table="{scope}">
       <el-table
         :data="scope"
@@ -42,10 +46,10 @@
         <el-table-column
           prop="manager"
           label="负责人"
-          width="300"
+          min-width="300"
         >
           <template slot-scope="scope">
-            <el-tag v-for="(item, index) in scope.row.manager" :key="index" type="info">
+            <el-tag v-for="(item, index) in scope.row.manager" :key="index" :disable-transitions="true" type="info">
               {{ item || '-' }}
             </el-tag>
           </template>
@@ -60,7 +64,42 @@
           label="状态"
           width="100"
           align="center"
-        />
+        >
+          <template slot-scope="scope">
+            <Badge :type="scope.row.status === 'normal'? 'success': 'danger'">
+              {{ scope.row.status === 'normal'? '正常': '异常' }}
+            </Badge>
+          </template>
+        </el-table-column>
+
+        <el-table-column
+          prop="module"
+          label="模块"
+          width="80"
+          align="center"
+        >
+          <i class="iconfont icon-mokuai" />
+        </el-table-column>
+        <el-table-column
+          prop="opreate"
+          label="操作"
+          width="150"
+          align="center"
+        >
+          <template slot-scope="scope">
+            <el-button type="text" @click="handleEditClick(scope.row)">
+              编辑
+            </el-button>
+            <G-split />
+            <el-button type="text" @click="handleStatusClick(scope.row)">
+              锁定
+            </el-button>
+            <G-split />
+            <el-button type="text" class="danger-type" @click="handleDelClick(scope.row.id)">
+              删除
+            </el-button>
+          </template>
+        </el-table-column>
       </el-table>
     </template>
   </Service>
@@ -68,14 +107,14 @@
 
 <script>
 import Service from '@/components/Service/Service.vue'
-
+import Badge from '@/components/Badge/Badge.vue'
 export default {
   components: {
-    Service
+    Service,
+    Badge
   },
   data() {
     return {
-      tableLoading: false
     }
   },
   methods: {
@@ -83,6 +122,15 @@ export default {
 
     },
     handleDetailClick() {
+
+    },
+    handleDelClick() {
+
+    },
+    handleEditClick() {
+
+    },
+    handleStatusClick() {
 
     }
   }

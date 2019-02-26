@@ -4,25 +4,27 @@
       <G-searchbox>
         <G-search slot="left" />
         <div slot="right">
-          <el-button type="primary" @click="handleAddClick">
-            新 增
-          </el-button>
+          <slot name="btn" />
         </div>
       </G-searchbox>
       <BaseTableBox
-        :query-params="queryParams"
+        :query-params="queryParams_raw"
         :total="total"
         :current.sync="currentPage"
         @handleSizeChange="handleSizeChange"
         @currentPageChange="currentPageChange"
       >
-        <slot
+        <div
           v-loading="tableLoading"
-          :scope="tableList"
           element-loading-text="加载中"
           element-loading-spinner="el-icon-loading"
-          name="table"
-        />
+          class="slot-table-container"
+        >
+          <slot
+            :scope="tableList"
+            name="table"
+          />
+        </div>
       </BaseTableBox>
     </div>
   </div>
@@ -82,20 +84,19 @@ export default {
         this.$emit('afterSuccessQuery', Array.from(this.tableList))
       }
     },
-    handleAddClick() {
-      this.$emit('add')
-    },
     currentPageChange(page) {
       this.query(page)
     },
     handleSizeChange(size) {
-      this.queryParams.page_size = size
+      this.queryParams_raw.page_size = size
       this.query(1)
     }
   }
 }
 </script>
 
-<style>
-
+<style lang="less">
+.slot-table-container {
+  min-height: 120px;
+}
 </style>
