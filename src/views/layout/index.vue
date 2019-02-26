@@ -28,6 +28,11 @@ export default {
     return {
       collapse: false
     }
+  },
+  created() {
+    this.$bus.$on('switchCollapse', () => {
+      this.collapse = !this.collapse
+    })
   }
 }
 </script>

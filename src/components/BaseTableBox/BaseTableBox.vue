@@ -25,8 +25,8 @@ export default {
     queryParams: {
       type: Object,
       default: () => ({
-        pageNum: 1,
-        pageSize: 20
+        page_num: 1,
+        page_size: 20
       })
     },
     total: {

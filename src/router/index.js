@@ -7,8 +7,30 @@ Vue.use(Router)
 export const constantRouterMap = [
   {
     path: '/',
-    redirect: '/app',
+    redirect: '/dashboard',
     hidden: true
+  },
+  {
+    path: '/dashboard',
+    redirect: '/dashboard/index',
+    component: Layout,
+    alwaysShow: true,
+    meta: {
+      title: '首页',
+      icon: 'iconfont icon-dashboard',
+      istop: true
+    },
+    children: [
+      {
+        path: '/dashboard/index',
+        component: () => import(/* webpackChunkName: 'machine' */ '../views/DashBoard/DashBoard.vue'),
+        meta: {
+          title: '首页',
+          isFatherTop: true,
+          fatherTitle: '首页'
+        }
+      }
+    ]
   },
   {
     path: '/app',
@@ -17,12 +39,12 @@ export const constantRouterMap = [
     alwaysShow: true,
     meta: {
       title: '应用管理',
-      icon: 'iconfont icon-yingyong',
+      icon: 'iconfont icon-applications',
       istop: true // you can set roles in root nav
     },
     children: [
       {
-        path: 'index',
+        path: '/app/index',
         component: () => import(/* webpackChunkName: 'Application' */ '../views/Application/Application.vue'),
         name: 'application',
         meta: {
@@ -30,7 +52,7 @@ export const constantRouterMap = [
         }
       },
       {
-        path: 'module',
+        path: '/app/module',
         component: () => import(/* webpackChunkName: 'Module' */ '../views/Application/Module.vue'),
         name: 'module',
         meta: {
@@ -38,7 +60,7 @@ export const constantRouterMap = [
         }
       },
       {
-        path: 'operate',
+        path: '/app/operate',
         component: () => import(/* webpackChunkName: 'Operate' */ '../views/Application/Operate.vue'),
         name: 'operate',
         meta: {
@@ -54,24 +76,16 @@ export const constantRouterMap = [
     alwaysShow: true,
     meta: {
       title: '密钥管理',
-      icon: 'iconfont icon-miyao42',
+      icon: 'iconfont icon-miyue',
       istop: true
     },
     children: [
       {
-        path: 'index',
+        path: '/apiac/index',
         component: () => import(/* webpackChunkName: 'Apiac' */ '../views/Apiac/Apiac.vue'),
         name: 'apiac',
         meta: {
           title: '密钥管理', group: 'apiac'
-        }
-      },
-      {
-        path: '/apiac_grant',
-        component: () => import(/* webpackChunkName: 'ApiacGrant' */ '../views/Apiac/ApiacGrant.vue'),
-        name: 'apiac_grant',
-        meta: {
-          title: '密钥权限管理', group: 'apiac'
         }
       }
     ]

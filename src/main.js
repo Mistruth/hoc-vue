@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import '../public/css/theme/index.css'
-// import '@/assets/fonts/iconfont.css'
+import '@/assets/fonts/iconfont.css'
 import NProgress from 'nprogress'
 import messagebox from '@/components/MessageBox/index.js'
 import components from '@/components/_general/index.js'

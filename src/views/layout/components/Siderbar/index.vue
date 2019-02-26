@@ -33,6 +33,9 @@ export default {
   },
   created() {
     this.permission_routers = constantRouterMap
+    this.$bus.$on('switchCollapse', () => {
+      this.collapse = !this.collapse
+    })
   }
 }
 </script>

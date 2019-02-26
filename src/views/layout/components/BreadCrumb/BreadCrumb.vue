@@ -1,7 +1,7 @@
 <template>
   <div class="omega-com-bread-crumb-container">
     <el-breadcrumb class="omega-com-bread" separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :key="index">
+      <el-breadcrumb-item>
         应用管理
       </el-breadcrumb-item>
     </el-breadcrumb>
