@@ -30,7 +30,7 @@
         <el-table-column
           prop="parent_role"
           label="父角色"
-          min-width="150"
+          min-width="220"
         >
           <template slot-scope="scope">
             <template v-if="scope.row.parent_role.length !== 0">
@@ -58,7 +58,7 @@
         <el-table-column
           prop="user"
           label="角色用户"
-          min-width="100"
+          width="100"
           align="center"
         >
           <i class="iconfont icon-yonghu1" />
@@ -66,7 +66,7 @@
         <el-table-column
           prop="module"
           label="权限管理"
-          min-width="100"
+          width="100"
           align="center"
         >
           <i class="iconfont icon-quanxian" />
