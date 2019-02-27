@@ -84,7 +84,7 @@
         <el-table-column
           prop="opreate"
           label="操作"
-          width="300"
+          width="320"
           align="center"
         >
           <template slot-scope="scope">

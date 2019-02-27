@@ -46,6 +46,7 @@ export default {
 // 导航栏样式修改
 #app {
   .sidebar {
+    background-color: @sidebarColor;
     display: block;
     height: 100%;
     width: 180px;

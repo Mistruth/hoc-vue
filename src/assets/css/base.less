@@ -9,9 +9,10 @@
   .el-main {
     padding: 0px;
     height: 100%;
+    .scroll-bar-style
   }
   .base-container {
-    height: 100%;
+    // height: 100%;
     padding: 0px 40px 20px;
     .scroll-bar-style
   }
@@ -86,6 +87,9 @@
   .danger-type {
     &.el-button {
       color: @dangerColor;
+      &:hover {
+        color: #f2909b;
+      }
     }
   }
 
@@ -102,13 +106,22 @@
   }
 
   // icon
-  .icon-mokuai {
-    font-size: 20px;
-    cursor: pointer;
+  .el-table {
+    .iconfont {
+      font-size: 22px;
+      cursor: pointer;
+      transition: color 0.25s;
+      &:hover {
+        color: @themeHoverColor;
+      }
+    }
   }
-  .icon-quanxian {
-    font-size: 20px;
-    cursor: pointer;
+
+  // el-tag
+  .el-tag--small {
+    &:nth-child(n+2){
+      margin-left: 5px;
+    }
   }
 }
 
