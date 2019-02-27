@@ -96,7 +96,5 @@ export default {
 </script>
 
 <style lang="less">
-.slot-table-container {
-  min-height: 120px;
-}
+
 </style>

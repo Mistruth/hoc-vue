@@ -61,7 +61,9 @@
           width="80"
           align="center"
         >
-          <i class="iconfont icon-quanxian" />
+          <template slot-scope="scope">
+            <i class="iconfont icon-quanxian" @click="handleGrantClick(scope.row)" />
+          </template>
         </el-table-column>
         <el-table-column
           prop="status"
@@ -123,6 +125,10 @@ export default {
     },
     handleDetailClick() {
 
+    },
+    handleGrantClick(payload) {
+      const { id, name } = payload
+      this.$router.push(`/grant?id=${id}&name=${name}&type=treerolegrant`)
     }
   }
 }

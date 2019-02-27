@@ -24,7 +24,7 @@
           min-width="200"
         >
           <template slot-scope="scope">
-            <a @click="handleDetailClick">
+            <a @click="handleDetailClick(scope.row)">
               {{ scope.row.access_id }}
             </a>
           </template>
@@ -74,7 +74,9 @@
           width="80"
           align="center"
         >
-          <i class="iconfont icon-quanxian" />
+          <template slot-scope="scope">
+            <i class="iconfont icon-quanxian" @click="handleGrantClick(scope.row)" />
+          </template>
         </el-table-column>
         <el-table-column
           prop="opreate"
@@ -109,6 +111,11 @@ export default {
     Service,
     Badge
   },
+  data() {
+    return {
+
+    }
+  },
   methods: {
     handleAddClick() {
 
@@ -122,8 +129,12 @@ export default {
     handleDelClick() {
 
     },
-    handleDetailClick() {
+    handleDetailClick(payload) {
 
+    },
+    handleGrantClick(payload) {
+      const { id, name } = payload
+      this.$router.push(`/grant?id=${id}&name=${name}&type=apiacgrant`)
     }
   }
 }

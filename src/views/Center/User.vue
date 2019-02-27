@@ -79,7 +79,9 @@
           width="80"
           align="center"
         >
-          <i class="iconfont icon-quanxian" />
+          <template slot-scope="scope">
+            <i class="iconfont icon-quanxian" @click="handleGrantClick(scope.row)" />
+          </template>
         </el-table-column>
         <el-table-column
           prop="opreate"
@@ -143,6 +145,10 @@ export default {
     },
     handleTestClick() {
 
+    },
+    handleGrantClick(payload) {
+      const { id, name } = payload
+      this.$router.push(`/grant?id=${id}&name=${name}&type=usergrant`)
     }
   }
 }
