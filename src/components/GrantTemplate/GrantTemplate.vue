@@ -44,8 +44,8 @@
                 </template>
               </el-table-column>
               <el-table-column prop="type" label="模块分类" width="120" />
-              <el-table-column prop="name" label="名称" width="120" />
-              <el-table-column prop="display_name" label="显示名称" width="150" />
+              <el-table-column prop="name" label="名称" width="200" />
+              <el-table-column prop="display_name" label="显示名称" width="230" />
               <el-table-column prop="priority" label="优先级" width="120" align="center" />
               <el-table-column prop="operates" label="操作权限" min-width="180">
                 <template slot-scope="scope">

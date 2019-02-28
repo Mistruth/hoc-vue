@@ -4,6 +4,7 @@ import Layout from '../views/layout/index.vue'
 import tree from './async/tree.js'
 import center from './async/center.js'
 import grant from './async/grant.js'
+import users from './async/user.js'
 Vue.use(Router)
 
 export const constantRouterMap = [
@@ -112,5 +113,6 @@ export const asyncRouterMap = [
   tree,
   center,
   grant,
+  users,
   { path: '*', redirect: '/404', hidden: true }
 ]

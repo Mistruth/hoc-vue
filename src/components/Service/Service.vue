@@ -41,6 +41,10 @@ export default {
     type: {
       type: String,
       required: true
+    },
+    attrs: {
+      type: Object,
+      default: () => {}
     }
   },
   data() {
@@ -58,7 +62,7 @@ export default {
   computed: {
     queryParams() {
       return {
-        attrs: {},
+        attrs: { ...this.attrs },
         with_wild: true,
         sort: '',
         q: '*',

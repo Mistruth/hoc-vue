@@ -1,6 +1,7 @@
 <template>
   <Service
-    type="role"
+    type="user"
+    :attrs="attrs"
   >
     <template v-slot:btn>
       <el-button type="primary" @click="handleAddClick">
@@ -19,27 +20,41 @@
           align="center"
         />
         <el-table-column
+          prop="um"
+          label="UM账号"
+          width="200"
+        />
+        <el-table-column
           prop="name"
-          label="角色名称"
-          min-width="200"
+          label="姓名"
+          width="220"
         >
           <template slot-scope="scope">
-            <a @click="handleDetailClick(scope.row)">{{ scope.row.name }}</a>
+            {{ scope.row.name || '-' }}
           </template>
         </el-table-column>
         <el-table-column
-          prop="parent_role"
-          label="父角色"
+          prop="email"
+          label="邮箱"
+          width="300"
+        >
+          <template slot-scope="scope">
+            {{ scope.row.email || '-' }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          prop="department"
+          label="部门"
           min-width="220"
         >
           <template slot-scope="scope">
-            <template v-if="scope.row.parent_role.length !== 0">
-              <el-tag v-for="(item, index) in scope.row.parent_role" :key="index" :disable-transitions="true" type="info">
+            <template v-if="scope.row.department.length > 0">
+              <el-tag v-for="(item, index) in scope.row.department" :key="index" :disable-transitions="true" type="info">
                 {{ item || '-' }}
               </el-tag>
             </template>
             <template v-else>
-              <span>{{ '-' }}</span>
+              -
             </template>
           </template>
         </el-table-column>
@@ -56,40 +71,12 @@
           </template>
         </el-table-column>
         <el-table-column
-          prop="user"
-          label="角色用户"
-          width="100"
-          align="center"
-        >
-          <template slot-scope="scope">
-            <i class="iconfont icon-yonghu1" @click="handleUserClick(scope.row)" />
-          </template>
-        </el-table-column>
-        <el-table-column
-          prop="module"
-          label="权限管理"
-          width="100"
-          align="center"
-        >
-          <template slot-scope="scope">
-            <i class="iconfont icon-quanxian" @click="handleGrantClick(scope.row)" />
-          </template>
-        </el-table-column>
-        <el-table-column
           prop="opreate"
           label="操作"
-          width="150"
+          width="80"
           align="center"
         >
           <template slot-scope="scope">
-            <el-button type="text" @click="handleEditClick(scope.row)">
-              编辑
-            </el-button>
-            <G-split />
-            <el-button type="text" @click="handleStatusClick(scope.row)">
-              锁定
-            </el-button>
-            <G-split />
             <el-button type="text" class="danger-type" @click="handleDelClick(scope.row.id)">
               删除
             </el-button>
@@ -108,29 +95,24 @@ export default {
     Service,
     Badge
   },
+  data() {
+    return {
+      attrs: {}
+    }
+  },
+  created() {
+    this.getTypeAndName()
+  },
   methods: {
-    handleAddClick() {
-
+    getTypeAndName() {
+      const { name, type } = this.$route.query
+      this.attrs[type] = name
     },
-    handleEditClick() {
+    handleAddClick() {
 
     },
     handleDelClick() {
 
-    },
-    handleDetailClick() {
-
-    },
-    handleStatusClick() {
-
-    },
-    handleGrantClick(payload) {
-      const { id, name } = payload
-      this.$router.push(`/grant?id=${id}&name=${name}&type=rolegrant`)
-    },
-    handleUserClick(payload) {
-      const { id, name } = payload
-      this.$router.push(`/users?id=${id}&name=${name}&type=role`)
     }
   }
 }
@@ -139,4 +121,3 @@ export default {
 <style>
 
 </style>
-

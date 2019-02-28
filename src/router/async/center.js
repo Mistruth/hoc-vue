@@ -18,13 +18,13 @@ const center = {
       meta: { title: '用户管理', permissions: ['super.admin', 'user.admin'] }
     },
     {
-      path: 'dep',
+      path: '/center/dep',
       component: () => import(/* webpackChunkName: 'Dep' */ '../../views/Center/Dep.vue'),
       name: 'dep',
       meta: { title: '部门管理', permissions: ['super.admin', 'group.admin'] }
     },
     {
-      path: 'role',
+      path: '/center/role',
       component: () => import(/* webpackChunkName: 'Role' */ '../../views/Center/Role.vue'),
       name: 'role',
       meta: { title: '角色管理', permissions: ['super.admin', 'role.admin'] }

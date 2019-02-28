@@ -65,7 +65,9 @@
           min-width="100"
           align="center"
         >
-          <i class="iconfont icon-yonghu1" />
+          <template slot-scope="scope">
+            <i class="iconfont icon-yonghu1" @click="handleUserClick(scope.row)" />
+          </template>
         </el-table-column>
         <el-table-column
           prop="module"
@@ -120,6 +122,10 @@ export default {
     handleGrantClick(payload) {
       const { id, name } = payload
       this.$router.push(`/grant?id=${id}&name=${name}&type=groupgrant`)
+    },
+    handleUserClick(payload) {
+      const { id, name } = payload
+      this.$router.push(`/users?id=${id}&name=${name}&type=department`)
     }
   }
 }

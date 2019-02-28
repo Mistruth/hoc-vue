@@ -6,9 +6,7 @@ import { getUserInfo } from '@/api/request.js'
 export default new Vue({
   data() {
     return {
-      userInfo: {
-
-      },
+      userInfo: {},
       permissionList: [],
       renderRouters: []
     }
