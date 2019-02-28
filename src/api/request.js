@@ -15,7 +15,7 @@ export function getModules(params) {
 }
 
 // 通用删除
-export function delGrantById(params) {
+export function delCommon(params) {
   return http.get(`${baseUrl}/delete_common.json`, params)
 }
 

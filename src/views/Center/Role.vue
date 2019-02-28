@@ -7,7 +7,7 @@
         新 增
       </el-button>
     </template>
-    <template v-slot:table="{scope}">
+    <template v-slot:table="{scope,currentService}">
       <el-table
         :data="scope"
         style="width: 100%"
@@ -78,7 +78,7 @@
         <el-table-column
           prop="opreate"
           label="操作"
-          width="150"
+          width="160"
           align="center"
         >
           <template slot-scope="scope">
@@ -90,7 +90,7 @@
               锁定
             </el-button>
             <G-split />
-            <el-button type="text" class="danger-type" @click="handleDelClick(scope.row.id)">
+            <el-button type="text" class="danger-type" @click="handleDelClick(scope.row,currentService)">
               删除
             </el-button>
           </template>
@@ -101,6 +101,7 @@
 </template>
 
 <script>
+import del from '@/mixins/del.js'
 import Service from '@/components/Service/Service.vue'
 import Badge from '@/components/Badge/Badge.vue'
 export default {
@@ -108,14 +109,12 @@ export default {
     Service,
     Badge
   },
+  mixins: [del],
   methods: {
     handleAddClick() {
 
     },
     handleEditClick() {
-
-    },
-    handleDelClick() {
 
     },
     handleDetailClick() {

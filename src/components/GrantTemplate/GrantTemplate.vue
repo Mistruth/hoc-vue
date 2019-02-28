@@ -161,7 +161,7 @@
 import NoModule from '@/components/NoModule/NoModule.vue'
 import BaseTableBox from '@/components/BaseTableBox/BaseTableBox.vue'
 import { getAttrsIdByMap } from '@/constant/index.js'
-import { getModules, queryByService, delGrantById } from '@/api/request.js'
+import { getModules, queryByService, delCommon } from '@/api/request.js'
 import add from './mixins/add.js'
 import edit from './mixins/edit.js'
 export default {
@@ -288,7 +288,7 @@ export default {
         id: id,
         service: this.type
       }
-      const res = await delGrantById({ params })
+      const res = await delCommon({ params })
       const { code, message } = res.data
       if (code === 200 && message === 'ok') {
         this.$message.success('删除成功')

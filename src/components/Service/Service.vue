@@ -22,6 +22,7 @@
         >
           <slot
             :scope="tableList"
+            :currentService="type"
             name="table"
           />
         </div>
