@@ -9,11 +9,12 @@ const Initinstance = (option) => {
   if (type !== 'object') {
     throw new Error('option must be object')
   }
-  const { title } = option
+  const { title, data } = option
   instance = new DetailConstructor({
     el: div,
     data: {
-      title: title || '提示'
+      title: title || '提示',
+      data: data
     },
     methods: {
 

@@ -128,8 +128,35 @@ export default {
     handleAddClick() {
 
     },
-    handleDetailClick() {
-
+    handleDetailClick(payload) {
+      const { name } = payload
+      this.$detailbox.show({
+        title: `${name}`,
+        data: [
+          {
+            title: '基本信息',
+            type: 'item',
+            data: [
+              {
+                key: '应用名称',
+                value: payload.name
+              },
+              {
+                key: '显示名称',
+                value: payload.display_name
+              },
+              {
+                key: '秘钥',
+                value: payload.secret
+              },
+              {
+                key: '状态',
+                value: 1
+              }
+            ]
+          }
+        ]
+      })
     },
     handleEditClick() {
 

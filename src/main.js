@@ -8,12 +8,14 @@ import components from '@/components/_general/index.js'
 import * as filters from '@/filters/index.js'
 import router from './router/index'
 import bus from './store/index.js'
+import detailBox from '@/components/DetailDialog'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI, { size: 'small' })
 
 Vue.prototype.$delbox = messagebox
+Vue.prototype.$detailbox = detailBox
 
 Object.keys(components).forEach(key => {
   Vue.component(components[key].name, components[key])
