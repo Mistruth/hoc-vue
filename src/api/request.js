@@ -38,3 +38,7 @@ export function editCommon(params) {
 export function getOperateByModule(id) {
   return http.get(`${baseUrl}/get_operate_by_module.json`, { params: { module_id: id }})
 }
+
+export function getRoleByName(params) {
+  return http.get(`${baseUrl}/get_role.json`, params)
+}

@@ -1,5 +1,6 @@
 <template>
-  <Service
+  <QueryWrapper
+    ref="service"
     type="user"
   >
     <template v-slot:btn>
@@ -94,8 +95,11 @@
               编辑
             </el-button>
             <G-split />
-            <el-button type="text" @click="handleStatusClick(scope.row)">
+            <el-button v-if="scope.row.status === 'normal'" type="text" @click="handleStatusClick(scope.row,currentService)">
               锁定
+            </el-button>
+            <el-button v-else type="text" @click="handleStatusClick(scope.row,currentService)">
+              恢复
             </el-button>
             <G-split />
             <el-button type="text" @click="handleResetClick(scope.row)">
@@ -113,19 +117,23 @@
         </el-table-column>
       </el-table>
     </template>
-  </Service>
+  </QueryWrapper>
 </template>
 
 <script>
 import del from '@/mixins/del.js'
-import Service from '@/components/Service/Service.vue'
+import edit from '@/mixins/edit.js'
+import QueryWrapper from '@/components/QueryWrapper/QueryWrapper.vue'
 import Badge from '@/components/Badge/Badge.vue'
 export default {
   components: {
-    Service,
+    QueryWrapper,
     Badge
   },
-  mixins: [del],
+  mixins: [del, edit],
+  mounted() {
+
+  },
   methods: {
     handleAddClick() {
 
@@ -133,13 +141,7 @@ export default {
     handleEditClick() {
 
     },
-    handleStatusClick() {
-
-    },
     handleDetailClick() {
-
-    },
-    handleResetClick() {
 
     },
     handleTestClick() {

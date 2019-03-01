@@ -13,7 +13,7 @@ const user = {
     {
       path: '/users/index',
       component: () => import(/* webpackChunkName: 'users' */ '../../views/UserPage/UserPage.vue'),
-      name: 'user',
+      name: 'user_index',
       meta: {
         title: '用户'
       }

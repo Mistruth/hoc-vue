@@ -1,5 +1,6 @@
 <template>
-  <Service
+  <QueryWrapper
+    ref="service"
     type="treerole"
   >
     <template v-slot:btn>
@@ -7,7 +8,7 @@
         新 增
       </el-button>
     </template>
-    <template v-slot:table="{scope}">
+    <template v-slot:table="{scope,currentService}">
       <el-table
         :data="scope"
         style="width: 100%"
@@ -80,7 +81,7 @@
         <el-table-column
           prop="opreate"
           label="操作"
-          width="150"
+          width="160"
           align="center"
         >
           <template slot-scope="scope">
@@ -88,39 +89,39 @@
               编辑
             </el-button>
             <G-split />
-            <el-button type="text" @click="handleStatusClick(scope.row)">
+            <el-button v-if="scope.row.status === 'normal'" type="text" @click="handleStatusClick(scope.row,currentService)">
               锁定
             </el-button>
+            <el-button v-else type="text" @click="handleStatusClick(scope.row,currentService)">
+              恢复
+            </el-button>
             <G-split />
-            <el-button type="text" class="danger-type" @click="handleDelClick(scope.row.id)">
+            <el-button type="text" class="danger-type" @click="handleDelClick(scope.row,currentService)">
               删除
             </el-button>
           </template>
         </el-table-column>
       </el-table>
     </template>
-  </Service>
+  </QueryWrapper>
 </template>
 
 <script>
-import Service from '@/components/Service/Service.vue'
+import del from '@/mixins/del.js'
+import edit from '@/mixins/edit.js'
+import QueryWrapper from '@/components/QueryWrapper/QueryWrapper.vue'
 import Badge from '@/components/Badge/Badge.vue'
 export default {
   components: {
-    Service,
+    QueryWrapper,
     Badge
   },
+  mixins: [del, edit],
   methods: {
     handleAddClick() {
 
     },
     handleEditClick() {
-
-    },
-    handleStatusClick() {
-
-    },
-    handleDelClick() {
 
     },
     handleDetailClick() {

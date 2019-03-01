@@ -1,5 +1,6 @@
 <template>
-  <Service
+  <QueryWrapper
+    ref="service"
     type="group"
   >
     <template v-slot:btn>
@@ -97,15 +98,15 @@
         </el-table-column>
       </el-table>
     </template>
-  </Service>
+  </QueryWrapper>
 </template>
 
 <script>
 import del from '@/mixins/del.js'
-import Service from '@/components/Service/Service.vue'
+import QueryWrapper from '@/components/QueryWrapper/QueryWrapper.vue'
 export default {
   components: {
-    Service
+    QueryWrapper
   },
   mixins: [del],
   methods: {

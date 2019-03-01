@@ -298,6 +298,7 @@ export default {
       }
     },
     handleRadioChange(module) {
+      this.currentPage = 1
       this.queryGrant(module)
     }
   }

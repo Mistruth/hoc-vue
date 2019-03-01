@@ -1,5 +1,5 @@
 <template>
-  <Service
+  <QueryWrapper
     type="user"
     :attrs="attrs"
   >
@@ -84,15 +84,15 @@
         </el-table-column>
       </el-table>
     </template>
-  </Service>
+  </QueryWrapper>
 </template>
 
 <script>
-import Service from '@/components/Service/Service.vue'
+import QueryWrapper from '@/components/QueryWrapper/QueryWrapper.vue'
 import Badge from '@/components/Badge/Badge.vue'
 export default {
   components: {
-    Service,
+    QueryWrapper,
     Badge
   },
   data() {

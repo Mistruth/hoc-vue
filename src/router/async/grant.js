@@ -13,7 +13,7 @@ const grant = {
     {
       path: '/grant/index',
       component: () => import(/* webpackChunkName: 'grant' */ '../../views/GrantPage/GrantPage.vue'),
-      name: 'grant',
+      name: 'grant_index',
       meta: {
         title: '权限'
       }

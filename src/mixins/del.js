@@ -14,7 +14,7 @@ export default {
             const { code, message } = res.data
             if (code === 200 && message === 'ok') {
               this.$message.success('删除成功')
-              this.query()
+              this.$refs.service.query()
             } else {
               this.$message.error(message)
             }
